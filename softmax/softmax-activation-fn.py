@@ -21,9 +21,11 @@ model = Sequential(
     ]
 )
 
+model.summary()
+
 model.compile(
-    loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True), # sending input as legits rather than probabilities            
-    optimizer=tf.keras.optimizers.Adam(0.001)                             # for higher accuracy
+    loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True), # sending input as legits rather than             
+    optimizer=tf.keras.optimizers.Adam(0.001)                             # probabilities for higher accuracy
 )
 
 model.fit(
@@ -40,6 +42,8 @@ print("largest value", np.max(output_z), "smallest value", np.min(output_z))
 output_probs = tf.nn.softmax(output_z).numpy()
 print(f"two example output vectors:\n {output_probs[:2]}")
 print("largest value", np.max(output_probs), "smallest value", np.min(output_probs))
+
+model.summary()
 
 for i in range(5):
     print( f"{output_z[i]}, category: {np.argmax(output_z[i])}")
