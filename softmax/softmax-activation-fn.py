@@ -24,7 +24,7 @@ model = Sequential(
 model.summary()
 
 model.compile(
-    loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True), # sending input as legits rather than             
+    loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True), # sending input as logits rather than             
     optimizer=tf.keras.optimizers.Adam(0.001)                             # probabilities for higher accuracy
 )
 
